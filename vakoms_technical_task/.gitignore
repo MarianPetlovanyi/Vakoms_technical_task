@@ -24,6 +24,8 @@ var/
 .installed.cfg
 *.egg'
 venv
+kaggle.json
+vakoms_technical_task/data/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
