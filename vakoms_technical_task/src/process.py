@@ -108,14 +108,14 @@ def process_data():
     
     annotations_h_path = "../data/raw/military-aircraft-recognition-dataset\Annotations\Horizontal Bounding Boxes"
     annotations_o_path = "../data/raw/military-aircraft-recognition-dataset\Annotations\Oriented Bounding Boxes"
-
+    images_path = "../data/raw/military-aircraft-recognition-dataset\JPEGImages"
     xml_files_h = [os.path.join(annotations_h_path, file) for file in os.listdir(annotations_h_path) if file.endswith('.xml')]
     xml_files_o = [os.path.join(annotations_o_path, file) for file in os.listdir(annotations_o_path) if file.endswith('.xml')]
 
     data = []
     for file in xml_files_h:
         image_data, objects = parse_horizontal_xml(file)
-        path = os.path.join(annotations_h_path, os.path.splitext(image_data[0][0])[0]+'.jpg')
+        path = os.path.join(images_path, os.path.splitext(image_data[0][0])[0]+'.jpg')
         for object in objects:
             data_sample = {'name': path, 'class':object[0],
                         'xmin': object[1], 'ymin': object[2], 'xmax': object[3], 'ymax': object[4]}
@@ -126,7 +126,7 @@ def process_data():
     data = []
     for file in xml_files_o:
         image_data, objects = parse_oriented_xml(file)
-        path = os.path.join(annotations_o_path, os.path.splitext(image_data[0][0])[0]+'.jpg')
+        path = os.path.join(images_path, os.path.splitext(image_data[0][0])[0]+'.jpg')
         for object in objects:
             data_sample = {'name': path, 'class':object[0],
                         'x_left_top': object[1], 'y_left_top': object[2], 'x_right_top': object[3], 'y_right_top': object[4],
