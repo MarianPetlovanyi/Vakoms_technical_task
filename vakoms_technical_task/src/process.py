@@ -21,21 +21,15 @@ def parse_horizontal_xml(path_to_xml):
     xtree = et.parse(path_to_xml)
     xroot = xtree.getroot()
     
-    filename = []
-    database = []
-    width = []
-    height = []
-    depth = []
-    segmented = []
+    filename = xroot.find("filename").text
+    database = xroot.find(".//source/database").text
+    width = int(xroot.find(".//size/width").text)
+    height = int(xroot.find(".//size/height").text)
+    depth = int(xroot.find(".//size/depth").text)
+    segmented = int(xroot.find("segmented").text)
 
     object_data = []
     
-    filename.append(xroot.find("filename").text)
-    database.append(xroot.find(".//source/database").text)
-    width.append(int(xroot.find(".//size/width").text))
-    height.append(int(xroot.find(".//size/height").text))
-    depth.append(int(xroot.find(".//size/depth").text))
-    segmented.append(int(xroot.find("segmented").text))
     
     for obj in xroot.findall(".//object"):
         object_name = obj.find("name").text
@@ -66,21 +60,15 @@ def parse_oriented_xml(path_to_xml):
     xtree = et.parse(path_to_xml)
     xroot = xtree.getroot()
     
-    filename = []
-    database = []
-    width = []
-    height = []
-    depth = []
-    segmented = []
+    filename = xroot.find("filename").text
+    database = xroot.find(".//source/database").text
+    width = int(xroot.find(".//size/width").text)
+    height = int(xroot.find(".//size/height").text)
+    depth = int(xroot.find(".//size/depth").text)
+    segmented = int(xroot.find("segmented").text)
 
     object_data = []
-    
-    filename.append(xroot.find("filename").text)
-    database.append(xroot.find(".//source/database").text)
-    width.append(int(xroot.find(".//size/width").text))
-    height.append(int(xroot.find(".//size/height").text))
-    depth.append(int(xroot.find(".//size/depth").text))
-    segmented.append(int(xroot.find("segmented").text))
+
 
 
     
@@ -108,16 +96,16 @@ def process_data():
     
     annotations_h_path = "../data/raw/military-aircraft-recognition-dataset\Annotations\Horizontal Bounding Boxes"
     annotations_o_path = "../data/raw/military-aircraft-recognition-dataset\Annotations\Oriented Bounding Boxes"
-    images_path = "../data/raw/military-aircraft-recognition-dataset\JPEGImages"
+    
     xml_files_h = [os.path.join(annotations_h_path, file) for file in os.listdir(annotations_h_path) if file.endswith('.xml')]
     xml_files_o = [os.path.join(annotations_o_path, file) for file in os.listdir(annotations_o_path) if file.endswith('.xml')]
 
     data = []
     for file in xml_files_h:
         image_data, objects = parse_horizontal_xml(file)
-        path = os.path.join(images_path, os.path.splitext(image_data[0][0])[0]+'.jpg')
+        path = os.path.splitext(image_data[0])[0]+'.jpg'
         for object in objects:
-            data_sample = {'name': path, 'class':object[0],
+            data_sample = {'name': path, 'image_width': image_data[2], 'image_height': image_data[3], 'class':object[0],
                         'xmin': object[1], 'ymin': object[2], 'xmax': object[3], 'ymax': object[4]}
             data.append(data_sample)
     df_h = pd.DataFrame(data)
@@ -126,9 +114,9 @@ def process_data():
     data = []
     for file in xml_files_o:
         image_data, objects = parse_oriented_xml(file)
-        path = os.path.join(images_path, os.path.splitext(image_data[0][0])[0]+'.jpg')
+        path = os.path.splitext(image_data[0])[0]+'.jpg'
         for object in objects:
-            data_sample = {'name': path, 'class':object[0],
+            data_sample = {'name': path, 'image_width': image_data[2], 'image_height': image_data[3],'class':object[0],
                         'x_left_top': object[1], 'y_left_top': object[2], 'x_right_top': object[3], 'y_right_top': object[4],
                         'x_left_bottom': object[5], 'y_left_bottom': object[6], 'x_right_bottom': object[7], 'y_right_bottom': object[8]}
             data.append(data_sample)
