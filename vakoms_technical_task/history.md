@@ -13,22 +13,22 @@ This document records the history of our Machine Learning project.
 
 
 ## October 12, 2023
-
+- Created `process.py` to process dataset into csv
 
 ## October 13, 2023
-
-
+- Dayoff
 ## October 14, 2023
+- Fixed bugs in `process.py`
+##  October 15, 2023
+- Created and trained first model
+- Made confusion matrix for first model, evaluated a model
 
 
 
 ## Future Plans
 
-- Plan to implement machine learning models to train on the dataset.
-- Explore feature engineering and model evaluation techniques.
-
+- Finish project
 ## Contributors
 
-- Your Name (YourEmail@example.com)
+- MarianPetlovanyi (petlyovanyy@gmail.com)
 
-Feel free to update this document as your project progresses, adding more details about your work, future plans, and any contributors involved in the project.

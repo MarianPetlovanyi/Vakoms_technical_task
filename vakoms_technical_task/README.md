@@ -1,53 +1,63 @@
-# vakoms_technical_task
+# Vakoms Technical Task - Machine Learning Project
 
-## Tools used in this project
-* [Poetry](https://towardsdatascience.com/how-to-effortlessly-publish-your-python-package-to-pypi-using-poetry-44b305362f9f): Dependency management - [article](https://mathdatasimplified.com/2023/06/12/poetry-a-better-way-to-manage-python-dependencies/)
-* [hydra](https://hydra.cc/): Manage configuration files - [article](https://mathdatasimplified.com/2023/05/25/stop-hard-coding-in-a-data-science-project-use-configuration-files-instead/)
-* [pre-commit plugins](https://pre-commit.com/): Automate code reviewing formatting
-* [DVC](https://dvc.org/): Data version control - [article](https://mathdatasimplified.com/2023/02/20/introduction-to-dvc-data-version-control-tool-for-machine-learning-projects-2/)
-* [pdoc](https://github.com/pdoc3/pdoc): Automatically create an API documentation for your project
+## Introduction
 
-## Set up the environment
-1. Install [Poetry](https://python-poetry.org/docs/#installation)
-2. Set up the environment:
-```bash
-make env 
-```
+This repository contains the code and resources for the "vakoms_technical_task" machine learning project. The project aims to create machine learning model to detect obejct based on dataset provided by Vakoms. The goal is implement application with model that will classify object and predict bounding boxes.  
 
-## Install dependencies
-To install all dependencies for this project, run:
-```bash
-poetry install
-```
 
-To install a new package, run:
-```bash
-poetry add <package-name>
-```
+## Setting up a Python Virtual Environment
 
-## Version your data
-To track changes to the "data" directory, type:
-```bash
-dvc add data
-```
+To create a virtual environment for this project, follow these steps:
 
-This command will create the "data.dvc" file, which contains a unique identifier and the location of the data directory in the file system.
+1. Open your terminal or command prompt.
 
-To keep track of the data associated with a particular version, commit the "data.dvc" file to Git:
-```bash
-git add data.dvc
-git commit -m "add data"
-```
+2. Navigate to the project's root directory:
 
-To push the data to remote storage, type:
-```bash
-dvc push 
-```
+   ```bash
+   cd /path/to/vakoms_technical_task
+   python -m venv venv
+   ```
+3. Activate virtual environment
+   
+   Windows
+   ```bash
+   .\venv\Scripts\activate
+   ```
+   Linux/macOS
+    ```bash
+    source venv/bin/activate
+   ```
 
-## Auto-generate API documentation
+## Installation
 
-To auto-generate API document for your project, run:
+To set up the project environment, you can use the following command to install the required dependencies:
 
 ```bash
-make docs
+pip install -r requirements.txt
 ```
+
+## Downloading the Dataset
+
+To obtain the dataset necessary for this project, follow these steps:
+
+1. Open your terminal or command prompt.
+
+2. Navigate to the project's root directory:
+
+   ```bash
+   cd /path/to/vakoms_technical_task/src
+   python download_dataset.py
+   ```
+
+## Processing Dataset
+
+To preprocess dataset, follow these steps:
+
+1. Open your terminal or command prompt.
+
+2. Navigate to the project's root directory:
+
+   ```bash
+   cd /path/to/vakoms_technical_task/src
+   python process.py
+   ```
