@@ -7,3 +7,4 @@ pandas
 imutils
 pickle-mixin
 pyyaml 
+scikit-learn
