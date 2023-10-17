@@ -17,8 +17,10 @@ This document records the history of our Machine Learning project.
 
 ## October 13, 2023
 - Dayoff
+
 ## October 14, 2023
 - Fixed bugs in `process.py`
+
 ##  October 15, 2023
 - Created and trained first model
 - Made confusion matrix for first model, evaluated a model
@@ -26,6 +28,11 @@ This document records the history of our Machine Learning project.
 ##  October 16, 2023
 - Created and trained second model
 - Evaluated a second model
+
+##  October 17, 2023
+- Created and trained third model
+- Evaluated a third model
+- Created `detect.py` script to run the model
 
 ## Future Plans
 

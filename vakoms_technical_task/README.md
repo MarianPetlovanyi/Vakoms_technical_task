@@ -61,3 +61,17 @@ To preprocess dataset, follow these steps:
    cd /path/to/vakoms_technical_task/src
    python process.py
    ```
+
+
+## Usage
+
+To preprocess dataset, follow these steps:
+
+1. Open your terminal or command prompt.
+
+2. Navigate to the project's root directory:
+
+   ```bash
+   cd /path/to/vakoms_technical_task/
+   python detect.py demo.jpg       #replace demo.jpg
+   ```

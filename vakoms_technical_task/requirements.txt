@@ -1,0 +1,9 @@
+pandas
+opendatasets
+tensorflow
+opencv-contrib-python
+numpy
+pandas
+imutils
+pickle-mixin
+pyyaml 
