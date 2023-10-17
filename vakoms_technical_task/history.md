@@ -23,7 +23,9 @@ This document records the history of our Machine Learning project.
 - Created and trained first model
 - Made confusion matrix for first model, evaluated a model
 
-
+##  October 16, 2023
+- Created and trained second model
+- Evaluated a second model
 
 ## Future Plans
 
